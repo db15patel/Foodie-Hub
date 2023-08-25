@@ -1,125 +1,66 @@
-# Recipe_App🥗🥘
+# Recipe_App 🥗🥘
 
-This is Native Java Android App is based on the data that is fetched from <b>TheMealDB</b> Api (<a href="https://www.themealdb.com/api.php">link</a>) 
+Welcome to **Recipe_App**, a Native Java Android App that fetches delightful recipes from **TheMealDB** API ([link](https://www.themealdb.com/api.php)).
 
-#### Under active development👨‍💻
-<br>
-
-## Screenshots📷
-<table>
-  <tr>
-    <td>Loading Screen with Shimmer</td>
-     <td>Main Interface</td>
-     <td>On Tap on any card(loading..)</td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/Debanshu777/Recipe_App/blob/master/Images/image1.png" width=240 height=410/></td>
-    <td><img src="https://github.com/Debanshu777/Recipe_App/blob/master/Images/image2.png" width=240 height=410/></td>
-    <td><img src="https://github.com/Debanshu777/Recipe_App/blob/master/Images/image3.png" width=240 height=410/></td>
-  </tr>
-  <tr>
-    <td>Catagory Interface</td>
-     <td>On Scroll Data Fetched from Api </td>
-     <td>On tap on any Item(loading..)</td>
-     <td>Detail Interface</td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/Debanshu777/Recipe_App/blob/master/Images/image4.png" width=240 height=410/></td>
-    <td><img src="https://github.com/Debanshu777/Recipe_App/blob/master/Images/image5.png" width=240 height=410/></td>
-    <td><img src="https://github.com/Debanshu777/Recipe_App/blob/master/Images/image6.png" width=240 height=410/></td>
-    <td><img src="https://github.com/Debanshu777/Recipe_App/blob/master/Images/image7.png" width=240 height=410/></td>
-  </tr>
- </table>
-
-<br>
+🚧 **Under Active Development** 👨‍💻
 
 ## Dependencies
-<br>
 
-### • Butterknife(<a href="https://github.com/JakeWharton/butterknife">More Info</a>)
-Field and method binding for Android views which uses annotation processing to generate boilerplate code for you.
+### • Butterknife ([More Info](https://github.com/JakeWharton/butterknife))
 
-- Eliminate findViewById calls by using @BindView on fields.
-- Group multiple views in a list or array. Operate on all of them at once with actions, setters, or properties.
-- Eliminate anonymous inner-classes for listeners by annotating methods with @OnClick and others.
-- Eliminate resource lookups by using resource annotations on fields<br><br>
-<b>Note: This tool is now deprecated.</b>
-```
-  android {
-  ...
-  // Butterknife requires Java 8.
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
-  }
-}
+Field and method binding for Android views, reducing boilerplate code.
 
-dependencies {
-  implementation 'com.jakewharton:butterknife:10.2.1'
-  annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
-}
-```
-<br>
+### • Retrofit2 ([More Info](https://github.com/square/retrofit))
 
-### • Retrofit2 (<a href="https://github.com/square/retrofit">More Info</a>)
-A type-safe HTTP client for Android and Java.<br><br>
-<b>Note: Retrofit requires at minimum Java 8+ or Android API 21+.</b><br>
-<b>Dependency for Retrofit:</b>
-```
-com.squareup.retrofit2:retrofit:2.9.0
-```
-<b>Depencency for Retrofit Gson Converter:</b>
-```
-implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-```
-<br>
+A type-safe HTTP client for Android and Java.
 
-### • Picasso (<a href="https://github.com/square/picasso">More Info</a>)
-A powerful image downloading and caching library for Android
-```
-implementation 'com.squareup.picasso:picasso:2.71828'
-```
-<br>
+### • Picasso ([More Info](https://github.com/square/picasso))
 
-### • Shimmer FB(<a href="https://github.com/facebook/shimmer-android">More Info</a>)
-Shimmer is an Android library that provides an easy way to add a shimmer effect to any view in your Android app.
-It is useful as an unobtrusive loading indicator, and was originally developed for Facebook Home.
-```
-implementation 'com.facebook.shimmer:shimmer:0.5.0'
-```
-<br>
+A powerful image downloading and caching library for Android.
 
-## Design Architechture - Model–view–presenter(MVP)
-Model–view–presenter (MVP) is a derivation of the model–view–controller (MVC) architectural pattern which mostly used for building user interfaces MVP is an architecture pattern that you can use to deal with some of the shortcomings of MVC, and is a good alternative architecture. It provides an easy way to think about the structure of your app. It provides <b>modularity, testability and, in general, a more clean and maintainable codebase</b>.
+### • Shimmer FB ([More Info](https://github.com/facebook/shimmer-android))
 
-Picking apart the acronym, MVP is composed of the following components:
+Add shimmer effects to any view in your Android app.
 
-### Model:
-The model will continue to contain the data in simple classes, so nothing really changes here.
-<br>
+## Design Architecture - Model–View–Presenter (MVP)
 
-### View: 
-The view will continue to be implemented using Activity or Fragment classes, but we will change the scope of what the view controls.
-<br>
+Experience a clean and modular architecture pattern that enhances testability and maintainability. MVP segregates responsibilities as follows:
 
-### Presenter: 
-The last part is the presenter, which handles UI updates based on changes to the data model, and also processes users inputs. The presenter will contain much of the business code and replaces the controller from MVC.<br>
-<br>
+### Model
 
-In MVP, instead of having a controller Activity class which handles both changes to the model and what’s displayed on screen, the controller and view parts are separated out, and the both the presenter and view become more lightweight.
-<br>
+Contains data classes.
 
-<b> Data (model) and UI (view), only communicate with one another through an intermediary (the presenter)</b> . The presenter contains the bulk of the business logic, while the view focuses on how to display the data. The controller responsibility is now split between the view and presenter. A presenter handles the flow of data, and abstracts away the business logic from the controller. The Android-specific code stays in the view layer, and the presenter can be tested independently from the Android SDK.
+### View
 
-So how does data flow between these components? Take a look at this diagram:
-![](https://koenig-media.raywenderlich.com/uploads/2018/09/mvp.png)
-<br>
+Activity or Fragment classes that handle UI presentation.
+
+### Presenter
+
+Handles UI updates and user inputs. Contains business logic.
+
+![MVP Architecture](https://koenig-media.raywenderlich.com/uploads/2018/09/mvp.png)
 
 ## How To Run This
-<> Open your terminal (NOTE: git bash prefered/ Terminal on Android Studio/Any Other Editor)</br>
-<> Run the git clone command and clone this repo.</br>
-<> Navigate to the project folder where you have cloned the repo.</br>
-<> Sync the project.</br>
-<> Open an emulator or plug in a real device</br>
-<> Run the App</br>
-<br>
+
+1. Open your terminal (preferably Git Bash/Android Studio Terminal/Any Other Editor).
+2. Clone this repo using `git clone`.
+3. Navigate to the project folder.
+4. Sync the project.
+5. Open an emulator or plug in a real device.
+6. Run the App.
+
+## Enhance Your Experience
+
+🌟 **Enhanced User Experience**: Experience smooth loading with shimmer effects while data loads, giving users an engaging visual cue.
+
+🔎 **Detailed Recipe Views**: Tap on any recipe card to dive deep into recipe details. Your users can view mouth-watering images and explore detailed instructions.
+
+📖 **Theory Behind MVP**: Understand the Model-View-Presenter (MVP) architecture, a modular pattern that separates concerns, leading to cleaner code and easier maintenance.
+
+## Connect with Us
+
+Feel free to explore our repository and contribute to making food lovers' experiences even better. Connect with us for discussions, feedback, and more exciting updates!
+
+Happy Cooking! 🍳🍽️
+
+For a closer look at the system, check out our [System Screenshots](https://drive.google.com/drive/u/1/folders/1YXodEOzfBgBB03jAwvMtCjerdvLIbAlX).
